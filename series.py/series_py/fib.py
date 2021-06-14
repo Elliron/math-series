@@ -30,19 +30,44 @@ def lucas(n):
   """
   The function will be a lucas sequence
   The function will have one parameter called n
-  The function will iterate
+  The function will be recursive
   The function will return the nth value
   """
+  if n == 0:
+    return 2
+  elif n == 1:
+    return 1
+  else: 
+    return lucas(n-1) + lucas(n-2)
 
-  a = 2
-  b = 1
 
-  if (n==0) :
-    return a
+  # Lucas Iteration
+  # a = 2
+  # b = 1
+
+  # if (n == 0) :
+  #   return a
   
-  for i in range(2, n + 1) :
-    c = a + b
-    a = b
-    b = c
+  # for i in range(2, n + 1) :
+  #   c = a + b
+  #   a = b
+  #   b = c
 
-  return b
+  # return b
+
+def sum_series(n, a = 0, b = 1):
+  """
+  The function will determine which sequence to run
+  The function with have one required parameter and two optional ones
+  The required parameter will determine the element in the series to print
+  The optional parameters will default to 0 and 1.
+  The optional parameters will determine the first two values.
+  Calling the function with no optional paramaters will produce fibonacci.
+  Calling the function with optional parameters will produce values from the lucas series.
+  """
+  if n == 0:
+    return a
+  elif n == 1:
+    return b
+  else:
+    return sum_series(n-1, a, b) + sum_series(n-2, a, b)
